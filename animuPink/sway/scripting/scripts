@@ -1,0 +1,2 @@
+# Scripts to run on config reload
+exec_always ~/.config/sway/scripting/bash/reloadWaybar.sh

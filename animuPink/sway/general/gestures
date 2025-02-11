@@ -1,0 +1,5 @@
+# Keypad gestures config
+bindgesture {
+  swipe:3:right workspace prev
+  swipe:3:left workspace next
+}

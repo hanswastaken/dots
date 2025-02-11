@@ -1,0 +1,145 @@
+// -*- mode: jsonc -*-
+{
+    // "layer": "bottom", // Waybar at top layer
+    "position": "top", // Waybar position (top|bottom|left|right)
+    "height": 10, // Waybar height (to be removed for auto height)
+    //"width": 640, // Waybar width
+    "margin-top": 3,
+    "margin-left": 5,
+    "margin-right": 5,
+    "spacing": 3, // Gaps between modules (4px)
+    // Choose the order of the modules
+    "modules-center": [
+        "clock",
+        "mpd"
+    ],
+    "modules-left": [
+        "sway/mode",
+        "sway/scratchpad",
+        "sway/workspaces"
+    ],
+    "modules-right": [
+        "backlight",
+        "pulseaudio",
+        "battery",
+        "power-profiles-daemon",
+        "tray"
+    ],
+    // Modules configuration
+    "sway/workspaces": {
+        "disable-scroll": false,
+        "all-outputs": true,
+		    "persistent-workspaces": {
+			      "1": [],
+			      "2": [],
+			      "3": [],
+			      "4": [],
+			      "5": [],
+			      "6": [],
+			      "7": [],
+			      "8": [],
+			      "9": []//,
+			      //"10": []
+         },
+         "format": "{icon}",
+         "format-icons": {
+             "1": "一",
+             "2": "二",
+             "3": "三",
+             "4": "四",
+             "5": "五",
+             "6": "六",
+             "7": "七",
+             "8": "八",
+             "9": "九"//,
+             //"10": "十"
+             //"1": "",
+             //"2": "",
+             //"3": "",
+             //"4": "󰝚",
+             //"5": "󰉋",
+             //"6": "",
+             //"7": "",
+             //"8": "󰐍",
+             //"9": "󰈙",
+             //"10": "󰋾"
+    //         "urgent": "󰋑",
+    //         "focused": "󰋑",
+    //         "default": "󰋔"
+         }
+     },
+    "sway/mode": {
+        "format": "<span style=\"normal\">{}</span>"
+    },
+    "sway/scratchpad": {
+        "format": "{icon} {count}",
+        "show-empty": false,
+        "format-icons": ["", ""],
+        "tooltip": true,
+        "tooltip-format": "{app}: {title}"
+    },
+    "mpd": {
+        "format": "{artist} - {title}",
+        "format-disconnected": "",
+        "format-stopped": "",
+        "title-len": 30,
+        "unknown-tag": "N/A",
+        "interval": 5,
+        "tooltip-format": "{artist} - {title}\nAlbum: {album}\nVolume: {volume}",
+        "tooltip-format-disconnected": ""
+    },
+    "tray": {
+        "icon-size": 16,
+        "spacing": 10
+    },
+    "clock": {
+        // "timezone": "America/New_York",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format": "{:%H:%M}", // 24-hour
+        // "format": "{:%I:%M%p}", // 12-hour
+        "format-alt": "{:%a, %b %d %Y}"
+    },
+    "backlight": {
+        // "device": "acpi_video1",
+        "format": "{icon} {percent}",
+        "format-icons": ["󰃞", "󰃟", "󰃠"],
+        "on-click": "~/.local/bin/night-light"
+    },
+    "battery": {
+        "states": {
+            // "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}",
+        "format-full": "{icon} {capacity}",
+        "format-charging": "󰚥 {capacity}",
+        "format-plugged": "󰚥 {capacity}",
+        "format-icons": ["", "", "", "", ""],
+        "interval": 1,
+        "on-click": "~/.local/bin/powermenu"
+    },
+    "power-profiles-daemon": {
+      "format": "{icon}",
+      "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+      "tooltip": true,
+      "format-icons": {
+        "default": "",
+        "performance": "",
+        "balanced": "󰗑",
+        "power-saver": "󰌪"
+      }
+    },
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{icon} {volume}",
+        "format-muted": "󰖁 沈黙",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "default": ["󰕿", "󰖀", "󰕾"]
+        },
+        "on-click": "pamixer --toggle-mute",
+        "on-click-right": "pavucontrol"
+    }
+}
