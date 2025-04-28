@@ -1,0 +1,6 @@
+input "1118:2496:Microsoft_Surface_Type_Cover_Keyboard" {
+	xkb_layout us,cz
+	xkb_variant ,qwerty
+}
+
+bindsym $mod+space input "1118:2496:Microsoft_Surface_Type_Cover_Keyboard" xkb_switch_layout next
